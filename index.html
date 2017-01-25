@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  
+    body {      
+  background: radial-gradient(circle farthest-corner   at right bottom,#ffd08a 0,#ffa376 28%,#d26578       52%,#682a84 79%,#241668 100%);
+  height: 100vh;
+  width: 100%;
+  font-family: 'Montserrat';
+  font-weight: 100;
+  font-size: 16px;
+  color: white;
+  position: relative;
+}
+
+  ul li {list-style-type: none;}
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* General Styling for Navigation */
+.global-nav {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    right: 0;
+    height: 60px;
+    z-index: 500;
+}
+
+.global-nav a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.global-nav ul {
+    padding: 0;
+    margin: 0;
+}
+.nav-inner {
+  padding: 5px 0;
+}
+
+.nav-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative
+}
+
+.nav-wrapper a:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+/* Styling Logo Section */
+.navsection-logo * {
+  fill: #fff;
+}
+.navsection-logo:hover {
+  fill-opacity: 0.6;
+}
+.navsection-logo svg {
+  width: 100px;
+  height: 50px;
+}
+
+/* Styling Primary Section */
+.navsection-primary a {
+    font-size: 12px;
+    margin: 0;
+    padding: 0 8px;
+ }
+
+.navsection-primary ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 12px;
+    padding: 0 8px;
+ }
+
+/* Styling Mobile Section */
+.navsection-mobile {
+    display: none;
+    position: relative;
+}
+
+.mobilemenu-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 28px;
+  width: 34px;
+  cursor: pointer;
+  z-index: 500;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+.mobilemenu-wrapper:hover {
+  opacity: 0.6;
+}
+
+/* H2 for SR only */
+.mobilemenu-wrapper h2 {
+    font-size: 0 !important;
+}
+
+.mobilemenu-wrapper.active .bar-1 {
+    -webkit-transform: translateY(11px) translateX(0) rotate(45deg);
+    transform: translateY(11px) translateX(0) rotate(45deg);
+    background: #FFF;
+}
+.mobilemenu-wrapper.active .bar-2 {
+  opacity: 0;
+  background: #FFF;
+}
+.mobilemenu-wrapper.active .bar-3 {
+  -webkit-transform: translateY(-11px) translateX(0) rotate(-45deg);
+          transform: translateY(-11px) translateX(0) rotate(-45deg);
+  background: #FFF;
+}
+.mobilemenu-wrapper span {
+  background: #fff;
+  border: none;
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+.mobilemenu-wrapper span:nth-of-type(1) {
+  top: 0;
+}
+
+.mobilemenu-wrapper span:nth-of-type(2) {
+  top: 11px;
+}
+.mobilemenu-wrapper span:nth-of-type(3) {
+  top: 22px;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.8);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    visibility: hidden;
+    -webkit-transition: visibility 0.35s, height 0.35s;
+    transition: visibility 0.35s, height 0.35s;
+    overflow: auto; /* Set scroll for content heavy menus */
+}
+
+.overlay.open {
+  visibility: visible;
+  height: 100%;
+}
+
+.overlay div {
+  font-size: 32px;
+  margin: 40px 0 0;
+  text-align: center;
+}
+
+.overlay ul {
+  display: inline-block;
+  margin: 40px 0 0;
+  position: relative;
+  height: 100%;
+}
+.overlay ul li {
+  display: block;
+  min-height: 50px;
+  position: relative;
+  opacity: 1;
+}
+.overlay ul li a {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Keyframes */
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+
+/* Media Q */
+@media (max-width: 992px) {
+  .navsection-mobile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  }
+  .navsection-primary {
+    display: none;
+  }
+}
+
+/* Just some styling */
+
+a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+  </style>
+
+
+</head>
+<body>
+  
+<header class="global-nav page-center container">
+  <nav role="navigation" class="nav-inner">
+    <ul class="nav-wrapper">
+      <!-- Start Logo Section -->
+      <li class="navsection-logo">
+        <a href="/">
+          <h1>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 72"><title>inLink</title><polygon fill="#FFB100" points="34.907,35.519 30.424,35.519 23.71,28.804 16.513,36 23.707,43.197 30.424,36.479 34.907,36.479 23.707,47.68 12.027,35.998 23.707,24.318"/><polygon fill="#00B1F0" points="36.702,37.313 36.702,41.796 43.417,48.512 36.221,55.708 29.021,48.512 35.739,41.794 35.739,37.312 24.539,48.512 36.221,60.193 47.9,48.514"/><polygon fill="#78B100" points="36.702,34.687 36.702,30.204 43.417,23.489 36.221,16.292 29.021,23.489 35.739,30.207 35.739,34.689 24.539,23.489 36.221,11.807 47.9,23.486"/><path fill="#4D4D4D" d="M56.317,29.587H53.65v-2.663h2.667V29.587z M53.687,32.014h2.616v13.061h-2.616V32.014z"/><path fill="#4D4D4D" d="M61.961,45.075H59.37V32.101h10.379c2.604,0.015,3.904,1.321,3.904,3.907l0.015,9.058h-2.621v-8.679 c-0.021-1.101-0.597-1.665-1.729-1.69h-7.357V45.075z"/><path fill="#4D4D4D" d="M79.263,42.484h11.68v2.591H76.707V26.935h2.556V42.484z"/><path fill="#4D4D4D" d="M96.666,29.587h-2.673v-2.663h2.673V29.587z M94.028,32.014h2.621v13.061h-2.621V32.014z"/><path fill="#4D4D4D" d="M102.309,45.075h-2.597V32.101h10.385c2.604,0.015,3.901,1.321,3.901,3.907l0.016,9.058h-2.617v-8.679 c-0.025-1.101-0.604-1.665-1.73-1.69h-7.357V45.075z"/><path fill="#4D4D4D" d="M117.021,26.924h2.591v18.151h-2.591V26.924z M128.214,45.075l-7.3-6.993l6.994-5.956h3.988l-7.104,6.062 l7.18,6.887H128.214z"/></svg>
+          </h1>
+        </a>
+      </li>
+      <!-- End Logo Section -->
+      <!-- Start Primary Section -->
+      <li class="navsection-primary">
+        <ul>
+          <li><a href="/">Inbound</a></li>
+          <li><a href="/">Om oss</a></li>
+          <li><a href="/">Resurser</a></li>
+          <li><a href="/">Blogg</a></li>
+          <li><a href="/">Konsultation</a></li>
+        </ul>
+      </li>
+      <!-- End Primary Section -->
+      <!-- Start Mobile Section -->
+      <li class="navsection-mobile">
+        <!-- Mobile Menu Button -->
+        <a class="mobilemenu-wrapper" id="toggle"><h2>Menu</h2>
+            <span class="bar-1"></span>
+            <span class="bar-2"></span>
+            <span class="bar-3"></span>
+          </a>
+        <!-- Overlay -->
+        <div class="overlay" id="overlay">
+          <div>
+            <ul>
+              <li><a href="/">Inbound</a></li>
+              <li><a href="/">Om oss</a></li>
+              <li><a href="/">Resurser</a></li>
+              <li><a href="/">Blogg</a></li>
+              <li><a href="/">Konsultation</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <!-- End Mobile Section -->
+    </ul>
+  </nav>
+</header>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+
+  $('#toggle').click(function() {
+   $(this).toggleClass('active');
+   $('#overlay').toggleClass('open');
+  });
+</script>
+</body>
+</html>

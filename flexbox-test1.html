@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+		html,body {
+			margin: 0;
+			padding: 0;
+		}
+		.app {
+			/*height: 100%;
+			width: 100%;*/
+			padding: 20px;
+			background-color: blue;
+		}
+		.flex-container	{
+			margin auto;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-between;
+			/*align-content: center;*/
+			align-items: flex-start;
+		}
+		.color-blocks {
+			background-color: red;
+			width: 200px;
+			padding: 15px;
+			/*height: 50px;*/
+			flex: 1 240px;
+		}
+		.number1 {
+			/*flex-grow: 1;*/
+			/*flex-shrink: 2;*/
+			/*order: 2;*/
+		}
+		.number5 {
+			/*flex-shrink: 2;*/
+		}
+		</style>
+	</head>
+	<body>
+		<div class="app">
+			<div class="flex-container">
+				<div class="color-blocks number1">1111 МОСКВА, 31 дек — РИА Новости. Мэр столицы Сергей Собянин пожелал москвичам новогодних праздников без происшествий и отметил, что все коммунальные службы в эти дни будут дежурить круглосуточно.</div>
+				<div class="color-blocks number2">2</div>
+				<div class="color-blocks number3">МОСКВА, 22 янв — РИА Новости. На немецком телеканале ARD вышел новый фильм о допинге в российском спорте, в котором информатор бегун Андрей Дмитриев выступает с обвинениями в адрес отстраненного тренера легкоатлетов Владимира Казарина, в отношении которого проводится расследование. Об этом сообщает "Р-Спорт".</div>
+				<div class="color-blocks number4">4</div>
+				<div class="color-blocks number5">555555
+					РИМ, 23 янв – РИА Новости, Сергей Старцев. Бывший глава Еврокомиссии, экс-премьер-министр Италии Романо Проди призвал европейцев немедленно отменить антироссийские санкции, не дожидаясь, что первым это сделает новый президент США Дональд Трамп.
+				</div>
+			</div>
+			<ul class="flex-container">
+				<li class="color-blocks">1</li>
+				<li class="color-blocks">2</li>
+				<li class="color-blocks">3</li>
+				<li class="color-blocks">4</li>
+				<li class="color-blocks">5</li>
+				<li class="color-blocks">6</li>
+			</ul>
+		</div>
+	</body>
+</html>
